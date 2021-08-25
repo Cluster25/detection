@@ -1,0 +1,12 @@
+rule LockFile_Ransomware_287322_99911 {
+   meta:
+      description = "Detects unpacked Lockfile ransomware payload by internal strings"
+      author = "Cluster25"
+   strings:
+      $ = "Thanks to the warning wallpaper provided by lockbit, it's easy to use </div></div></div></div></div></div></body></html>" ascii
+	  $ = "LOCKFILE" ascii
+      $ = "<computername>%s</computername>" ascii
+	  $ = "<blocknum>%d</blocknum>" ascii
+   condition:
+      uint16(0) == 0x5a4d and all of them
+}
