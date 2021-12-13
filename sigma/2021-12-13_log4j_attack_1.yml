@@ -1,0 +1,18 @@
+title: Detects possibile Log4j Attack
+status: stable
+description: Detects possibile Log4j Attack
+author: Cluster25
+date: 2021/12/13
+references:
+  - internal research
+tags:
+  - attack.initial_access
+logsource:
+  category: webserver
+detection:
+  selection:
+    c-uri|re: '((\${)|(\%2524\%257B)|(\%24\%7b)|(%2F%252524%25257B)|(\$%7b)|(\$%7B))jndi(:(dns|rmi|ldaps|ldap))?'
+  condition: selection
+falsepositives:
+  - Vulnerability Scan
+level: high
