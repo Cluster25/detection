@@ -12,6 +12,9 @@ logsource:
 detection:
   selection:
     c-uri|re: '((\${)|(\%2524\%257B)|(\%24\%7b)|(%2F%252524%25257B)|(\$%7b)|(\$%7B))jndi(:(dns|rmi|ldaps|ldap))?'
+    user-agent|re: '((\${)|(\%2524\%257B)|(\%24\%7b)|(%2F%252524%25257B)|(\$%7b)|(\$%7B))jndi(:(dns|rmi|ldaps|ldap))?'
+    cs-User-Agent|re: '((\${)|(\%2524\%257B)|(\%24\%7b)|(%2F%252524%25257B)|(\$%7b)|(\$%7B))jndi(:(dns|rmi|ldaps|ldap))?'
+    cs-referrer|re: '((\${)|(\%2524\%257B)|(\%24\%7b)|(%2F%252524%25257B)|(\$%7b)|(\$%7B))jndi(:(dns|rmi|ldaps|ldap))?'
   condition: selection
 falsepositives:
   - Vulnerability Scan

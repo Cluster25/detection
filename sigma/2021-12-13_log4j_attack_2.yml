@@ -12,6 +12,9 @@ logsource:
 detection:
   selection:
     c-uri|re: '(\${upper:[jndildapdnsrmi])?(\${lower:[jndildapdnsrmi])?(\${::\-[jndildapdnsrmi])?((\${env:)(.*)(:-[jndildapdnsrmi]))?'
+    user-agent|re: '(\${upper:[jndildapdnsrmi])?(\${lower:[jndildapdnsrmi])?(\${::\-[jndildapdnsrmi])?((\${env:)(.*)(:-[jndildapdnsrmi]))?'
+    cs-User-Agent|re: '(\${upper:[jndildapdnsrmi])?(\${lower:[jndildapdnsrmi])?(\${::\-[jndildapdnsrmi])?((\${env:)(.*)(:-[jndildapdnsrmi]))?'
+    cs-referrer|re: '(\${upper:[jndildapdnsrmi])?(\${lower:[jndildapdnsrmi])?(\${::\-[jndildapdnsrmi])?((\${env:)(.*)(:-[jndildapdnsrmi]))?'
   condition: selection
 falsepositives:
   - Vulnerability Scan
