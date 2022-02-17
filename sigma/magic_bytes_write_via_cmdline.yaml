@@ -1,0 +1,19 @@
+title: Magic bytes write via cmdline
+status: experimental
+description: Magic bytes write via cmdline
+references:
+- internal research
+author: Cluster25
+date: 2022/02/09
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+      Image|endswith:
+          - 'cmd.exe' 
+      CommandLine|contains|all:
+          - 'echo|set'
+          - 'MZ'
+  condition: selection
+level: medium
