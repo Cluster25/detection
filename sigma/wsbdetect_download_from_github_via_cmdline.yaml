@@ -1,0 +1,28 @@
+title: Wsb-detect download from GitHub via cmdline
+status: experimental
+description: Wsb-detect download from GitHub via cmdline
+references:
+    - internal research
+author: Cluster25
+date: 2022/02/09
+tags:
+    - attack.t1071.001
+    - attack.t1105
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    cmdline:
+        Image|endswith:
+            - 'cmd.exe'
+        CommandLine|contains:
+            - 'x64.exe'
+            - 'x86.exe'
+        CommandLine|contains|all:
+            - 'wsb_detect_'
+            - 'curl'
+            - 'github.com'
+    condition: cmdline
+falsepositives:
+    - unlikely
+level: medium
